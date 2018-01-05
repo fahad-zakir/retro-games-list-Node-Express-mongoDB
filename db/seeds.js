@@ -1,7 +1,7 @@
 require('dotenv').config()
-const User = require('./models/User')
-const Store = require('./models/Store')
-const Gift = require('./models/Gift')
+const Gamer = require('./models/Gamer')
+const Library = require('./models/Library')
+const Game = require('./models/Game')
 const mongoose = require('mongoose')
 
 // connect to database
