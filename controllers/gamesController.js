@@ -1,18 +1,18 @@
 const express = require('express')
 const router = express.Router({ mergeParams: true })
 
-const Gamer = require('../db/models/Gamer')
+const User = require('../db/models/User')
 
 router.get('/new', (request, response) => {
-    const gamerId = request.params.gamerId
+    const userId = request.params.userId
     const storeId = request.params.storeId
 
-    Gamer.findById(gamerId)
-        .then((gamer) => {
-            const store = gamer.stores.id(storeId)
+    User.findById(userId)
+        .then((user) => {
+            const store = user.stores.id(storeId)
 
             response.render('gifts/new', {
-                GamerId,
+                UserId,
                 store,
                 pageTitle: 'New_Gift'
             })
@@ -20,35 +20,35 @@ router.get('/new', (request, response) => {
 })
 
 router.post('/', (request, response) => {
-    const gamerId = request.params.gamerId
+    const userId = request.params.userId
     const storeId = request.params.storeId
 
     const newGift = request.body
 
-    gamer.findById(gamerId)
-        .then((gamer) => {
-            const store = gamer.stores.id(storeId)
+    user.findById(userId)
+        .then((user) => {
+            const store = user.stores.id(storeId)
             store.giftsToReturn.push(newGift)
 
-            return gamer.save()
+            return user.save()
         })
         .then(() => {
-            response.redirect(`/gamers/${gamerId}/stores/${storeId}`)
+            response.redirect(`/users/${userId}/stores/${storeId}`)
         })
 })
 
 router.get('/:giftId', (request, response) => {
-    const gamerId = request.params.gamerId
+    const userId = request.params.userId
     const storeId = request.params.storeId
     const giftId = request.params.giftId
 
-    Gamer.findById(gamerId)
-        .then((gamer) => {
-            const store = gamer.stores.id(storeId)
+    User.findById(userId)
+        .then((user) => {
+            const store = user.stores.id(storeId)
             const gift = store.giftsToReturn.id(giftId)
 
             response.render('gifts/show', {
-                gamerId,
+                userId,
                 store,
                 gift,
                 pageTitle: 'Gifts'
@@ -60,19 +60,19 @@ router.get('/:giftId', (request, response) => {
 })
 
 router.get('/:giftId/delete', (request, response) => {
-    const gamerId = request.params.gamerId
+    const userId = request.params.userId
     const storeId = request.params.storeId
     const giftId = request.params.giftId
 
-    Gamer.findById(gamerId)
-        .then((gamer) => {
-            const store = gamer.stores.id(storeId)
+    User.findById(userId)
+        .then((user) => {
+            const store = user.stores.id(storeId)
             store.giftsToReturn.id(giftId).remove()
 
-            return gamer.save()
+            return user.save()
         })
         .then(() => {
-            response.redirect(`/gamers/${gamerId}/stores/${storeId}`)
+            response.redirect(`/users/${userId}/stores/${storeId}`)
         })
         .catch((error) => {
             console.log(error)

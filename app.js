@@ -1,17 +1,30 @@
 require('dotenv').config();
 const express = require('express');
+const mongoose = require('mongoose')
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override')
+const app = express();
 
+
+// Controllers setup
+const userController = require('./controllers/userController')
+app.use('/users', userController)
+
+// const librariesController = require('./controllers/storesController')
+// app.use('/users/:userId/stores', librariesController)
+
+// const gamesController = require('./controllers/giftsController')
+// app.use('/users/:userId/stores/:storeId/gifts', gamesController)
+
+// Automatically 
 
 const index = require('./routes/index');
 const users = require('./routes/users');
 
-const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -46,8 +59,6 @@ mongoose.connection.on('error', (error) => {
   process.exit(-1)
 })
 
-app.use('/', index);
-app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -66,5 +77,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;

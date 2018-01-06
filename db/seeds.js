@@ -1,5 +1,5 @@
 require('dotenv').config()
-const Gamer = require('./models/Gamer')
+const Gamer = require('./models/User')
 const Library = require('./models/Library')
 const Game = require('./models/Game')
 const mongoose = require('mongoose')

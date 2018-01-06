@@ -57,11 +57,15 @@ const UserSchema = new Schema(
             type: String,
             required: [true, 'Last name is required!']
         },
+        location: {
+            type: String,
+            default: ''
+        },
         photoUrl: {
             type: String,
             default: 'https://cdn.vectorstock.com/i/thumb-large/66/69/santa-hat-vector-296669.jpg'
         },
-        stores: [StoreSchema]
+        library: [librariesSchema]
     },
     {
         timestamps: {},
