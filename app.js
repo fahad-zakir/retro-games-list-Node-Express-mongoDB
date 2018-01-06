@@ -14,16 +14,16 @@ const app = express();
 const userController = require('./controllers/userController')
 app.use('/users', userController)
 
-// const librariesController = require('./controllers/storesController')
-// app.use('/users/:userId/stores', librariesController)
+// const gamesController = require('./controllers/gamesController')
+// app.use('/users/:userId/games', gamesController)
 
-// const gamesController = require('./controllers/giftsController')
-// app.use('/users/:userId/stores/:storeId/gifts', gamesController)
+// const infoController = require('./controllers/infoController')
+// app.use('/users/:userId/games/:gameId/info', infoController)
 
 // Automatically 
 
-const index = require('./routes/index');
-const users = require('./routes/users');
+// const index = require('./routes/index');
+// const users = require('./routes/users');
 
 
 // view engine setup

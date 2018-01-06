@@ -1,12 +1,340 @@
-body {
-      background-image: url(pirates.jpg);
-      background-size: cover;
-      background-repeat: no-repeat;
+/* Global */
 
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  font-family: "Roboto Mono", sans-serif;
+  font-weight: 300;
 }
 
-a {
-  color: #00B7FF;
+body {
+  background: ghostwhite;
+  padding: 40px;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+h1 {
+  font-family: "Rubik";
+  font-weight: 700;
+}
+
+h2 {
+  margin: 0px;
+  margin-bottom: 30px;
+}
+
+.app-name {
+  font-size: 1.55rem;
+  text-decoration: none;
+  color: black;
+}
+
+
+/* Stepper */
+
+.stepper {
+  align-self: flex-start;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+
+/* Button */
+
+.button {
+  border: 1px solid black;
+  max-width: 250px;
+  min-width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  transition: all 0.25s ease;
+}
+
+.button.primary:hover {
+  background: #74942c;
+}
+
+.button.warning:hover {
+  background: #e55934;
+}
+
+.button.primary {
+  background: #9bc53d;
+}
+
+.button.primary,
+.button.primary a {
+  color: white;
+}
+
+.button.warning {
+  color: white;
+  background: #fa7921;
+}
+
+.button a {
+  /* color: #5BC0EB; */
+  font-weight: 500;
+  /* text-decoration: none; */
+}
+
+
+/* Links / Buttons (specifically anchor tag links right now) */
+
+.link-button {
+  color: white;
+  background-color: darkgreen;
+  border-radius: 2px;
+  padding: 15px 30px;
+  text-align: center;
+  width: 80px;
+  margin-bottom: 15px;
+  text-decoration: none;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link-button-danger {
+  background-color: darkred;
+}
+
+
+/* Users INDEX page styles */
+
+.profile-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-name {
+  font-family: "Rubik";
+  font-weight: 500;
+  font-size: 1.35rem;
+}
+
+.user-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 40px 0;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0px 30px;
+  margin-bottom: 60px;
+  background-color: white;
+  width: 250px;
+  min-width: 200px;
+  height: 320px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.25s ease;
+}
+
+.user-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.user-card img {
+  height: 200px;
+  width: 200px;
+  border-radius: 49%;
+  background: white;
+}
+
+.user-image {
+  padding-bottom: 10px;
+}
+
+
+/* Users SHOW page styles */
+
+.user-container {
+  display: flex;
+  max-width: 750px;
+}
+
+.user-container img {
+  height: 256px;
+  width: 256px;
+}
+
+.user-info {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-container .button {
+  margin: 0 30px 0 0;
+}
+
+.user-info .visit-store a {
+  color: black;
+  font-size: 2rem;
+  transition: all .25s ease
+}
+
+.user-info .visit-store a:hover {
+  color: #e55934;
+}
+
+
+/* Page header styles*/
+
+.page-header {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* nav buttons (buttons on the bottom of the page, could probably be refactored) */
+
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+
+/*
+ Global nav
+*/
+
+.global-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  height: 70px;
+}
+
+.global-nav img {
+  height: 50px;
+  width: 50px;
+}
+
+
+/* Card styles */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.card-content {}
+
+
+/*
+    Form styles
+*/
+
+.form-input {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.form-input input {
+  width: 85%;
+  padding: 5px;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+.form-input label {
+  width: 100px;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+
+/* Store Show */
+
+.store-header,
+.stores,
+.gift-header,
+.gifts {
+  width: 65%;
+  min-width: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.store.card {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: baseline;
+  justify-content: center;
+  align-items: baseline;
+  width: 30%;
+  min-width: 125px;
+  background: white;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.store.card .cancel {
+  align-self: flex-end;
+  text-decoration: none;
+  font-size: 1.35rem;
+}
+
+.gift-header h3 {
+  font-family: "Rubik";
+  font-weight: 500;
+  font-size: 1.55rem;
+}
+
+.gifts {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gift {
+  margin: 10px;
+}
+
+@media screen and (max-width: 650px) {
+  .user-container {
+    flex-direction: column;
+  }
+  .store-header {
+    flex-direction: column;
+  }
 }

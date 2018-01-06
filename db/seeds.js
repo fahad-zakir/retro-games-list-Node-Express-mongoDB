@@ -1,7 +1,7 @@
 require('dotenv').config()
-const User = require('./models/User')
-const Store = require('./models/Store')
-const Gift = require('./models/Gift')
+const User = require('../db/models/User')
+const Game = require('../db/models/Game')
+const Info = require('../db/models/Info')
 const mongoose = require('mongoose')
 
 // connect to database
@@ -31,31 +31,31 @@ User.remove({}).then(() => {
         photoUrl: 'https://enterprisectr.org/wp-content/uploads/2014/09/bobloblaw.jpg'
     })
 
-    const target = new Store({
+    const target = new Game({
         name: 'Target',
         address: 'over there'
     })
-    const toaster = new Gift({
+    const toaster = new Info({
         title: 'Toaster',
         description: 'why?',
         price: 25.41,
         cameFrom: 'Lucille'
     })
-    target.giftsToReturn.push(toaster)
+    target.InfosToReturn.push(toaster)
 
-    const sharperImage = new Store({
+    const sharperImage = new Game({
         name: 'Sharper Image',
         address: 'the mall'
     })
-    const massageChair = new Gift({
+    const massageChair = new Info({
         title: 'Massage Chair',
         description: 'already have too many',
         price: 1521.67,
         cameFrom: 'Oscar'
     })
-    sharperImage.giftsToReturn.push(massageChair)
+    sharperImage.infoToReturn.push(massageChair)
 
-    bobLoblaw.stores.push(target, sharperImage)
+    bobLoblaw.games.push(target, sharperImage)
 
     return bobLoblaw.save()
 }).then(() => {
@@ -67,17 +67,17 @@ User.remove({}).then(() => {
         photoUrl: 'https://pbs.twimg.com/profile_images/378800000134134212/81a38a74f2f122459e88a5f95987a139.jpeg'
     })
 }).then((gob) => {
-    const magicStore = new Store({
-        name: 'The Magic Store',
+    const magicGame = new Game({
+        name: 'The Magic Game',
         address: 'over there'
     })
 
-    const petSmart = new Store({
+    const petSmart = new Game({
         name: 'PetSmart',
         address: '123 Sesame St'
     })
 
-    gob.stores.push(magicStore, petSmart)
+    gob.games.push(magicGame, petSmart)
 
     return gob.save()
 }).catch((error) => {

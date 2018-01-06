@@ -8,11 +8,11 @@ router.get('/', (request, response) => {
 
     User.findById(userId)
         .then((user) => {
-            response.render('stores/index', {
+            response.render('games/index', {
                 userFullName: `${user.firstName} ${user.lastName}`,
                 userId: user._id,
-                stores: user.stores,
-                pageTitle: 'Stores'
+                games: user.games,
+                pageTitle: 'Games'
             })
         })
         .catch((error) => {
@@ -23,23 +23,23 @@ router.get('/', (request, response) => {
 router.get('/new', (request, response) => {
     const userId = request.params.userId
 
-    response.render('stores/new', {
+    response.render('games/new', {
         userId,
-        pageTitle: 'New_Store'
+        pageTitle: 'New_Game'
     })
 })
 
-router.get('/:storeId', (request, response) => {
+router.get('/:gameId', (request, response) => {
     const userId = request.params.userId
-    const storeId = request.params.storeId
+    const gameId = request.params.gameId
 
     User.findById(userId)
         .then((user) => {
-            const store = user.stores.id(storeId)
-            response.render('stores/show', {
+            const game = user.games.id(gameId)
+            response.render('games/show', {
                 userId,
-                store,
-                pageTitle: 'Store'
+                game,
+                pageTitle: 'Game'
             })
         })
         .catch((error) => {
@@ -49,15 +49,15 @@ router.get('/:storeId', (request, response) => {
 
 router.post('/', (request, response) => {
     const userId = request.params.userId
-    const newStore = request.body
+    const newGame = request.body
 
     User.findById(userId)
         .then((user) => {
-            user.stores.push(newStore)
+            user.games.push(newGame)
             return user.save()
         })
         .then(() => {
-            response.redirect(`/users/${userId}/stores`)
+            response.redirect(`/users/${userId}/games`)
         })
         .catch((error) => {
             console.log(error)
@@ -65,17 +65,17 @@ router.post('/', (request, response) => {
 
 })
 
-router.get('/:storeId/delete', (request, response) => {
+router.get('/:gameId/delete', (request, response) => {
     const userId = request.params.userId
-    const storeId = request.params.storeId
+    const gameId = request.params.gameId
 
     User.findById(userId)
         .then((user) => {
-            user.stores.id(storeId).remove()
+            user.games.id(gameId).remove()
             return user.save()
         })
         .then(() => {
-            response.redirect(`/users/${userId}/stores/`)
+            response.redirect(`/users/${userId}/games/`)
         })
         .catch((error) => {
             console.log(error)
