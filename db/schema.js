@@ -3,11 +3,11 @@ const Schema = mongoose.Schema
 
 mongoose.Promise = global.Promise
 
-const GiftSchema = new Schema(
+const InfoSchema = new Schema(
     {
         title: {
             type: String,
-            required: [true, 'Gift title is required!']
+            required: [true, 'Info title is required!']
         },
         description: {
             type: String
@@ -24,16 +24,16 @@ const GiftSchema = new Schema(
     }
 )
 
-const StoreSchema = new Schema(
+const GameSchema = new Schema(
     {
         name: {
             type: String,
-            required: [true, 'Store name is required!']
+            required: [true, 'Game name is required!']
         },
         address: {
             type: String
         },
-        giftsToReturn: [GiftSchema]
+        InfosToReturn: [InfoSchema]
     },
     {
         timestamps: {}
@@ -57,15 +57,11 @@ const UserSchema = new Schema(
             type: String,
             required: [true, 'Last name is required!']
         },
-        location: {
-            type: String,
-            default: ''
-        },
         photoUrl: {
             type: String,
             default: 'https://cdn.vectorstock.com/i/thumb-large/66/69/santa-hat-vector-296669.jpg'
         },
-        library: [librariesSchema]
+        games: [GameSchema]
     },
     {
         timestamps: {},
@@ -75,6 +71,6 @@ const UserSchema = new Schema(
 
 module.exports = {
     UserSchema,
-    StoreSchema,
-    GiftSchema
+    GameSchema,
+    InfoSchema
 }

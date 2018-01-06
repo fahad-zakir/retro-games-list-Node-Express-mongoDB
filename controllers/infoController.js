@@ -1,85 +1,93 @@
-const express = require('express')
-const router = express.Router({mergeParams: true})
+require('dotenv').config()
+const User = require('./models/User')
+const Store = require('./models/Store')
+const Info = require('./models/Info')
+const mongoose = require('mongoose')
 
-const User = require('../db/models/User')
-
-router.get('/', (request, response) => {
-  const userId = request.params.userId
-
-  User.findById(userId)
-    .then((user) => {
-      response.render('info/index', {
-        userFullName: `${user.firstName} ${user.lastName}`,
-        userId: user._id,
-        info: user.info,
-        pageTitle: 'Info'
-      })
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+// connect to database
+mongoose.connect(process.env.MONGODB_URI, {
+  useMongoClient: true
 })
 
-router.get('/new', (request, response) => {
-  const userId = request.params.userId
+mongoose.connection.once('open', () => {
+  console.log(`Mongoose has connected to MongoDB`)
+})
 
-  response.render('info/new', {
-    userId,
-    pageTitle: 'New_Store'
+mongoose.connection.on('error', (error) => {
+  console.error(`
+    MongoDB connection error!!! 
+    ${error}
+  `)
+  process.exit(-1)
+})
+
+// Delete all users, then add some fake ones
+User.remove({}).then(() => {
+  const bobLoblaw = new User({
+    username: 'bob_loblaw',
+    email: 'bob@loblawlawblog.com',
+    firstName: 'Robert',
+    lastName: 'Loblaw',
+    photoUrl: 'https://enterprisectr.org/wp-content/uploads/2014/09/bobloblaw.jpg'
   })
+
+  const target = new Store({
+    name: 'Target',
+    address: 'over there'
+  })
+  const toaster = new Info({
+    title: 'Toaster',
+    description: 'why?',
+    price: 25.41,
+    cameFrom: 'Lucille'
+  })
+  target.infoToReturn.push(toaster)
+
+  const sharperImage = new Store({
+    name: 'Sharper Image',
+    address: 'the mall'
+  })
+  const massageChair = new Info({
+    title: 'Massage Chair',
+    description: 'already have too many',
+    price: 1521.67,
+    cameFrom: 'Oscar'
+  })
+  sharperImage.infoToReturn.push(massageChair)
+
+  bobLoblaw.stores.push(target, sharperImage)
+
+  return bobLoblaw.save()
+}).then(() => {
+  return User.create({
+    username: 'GOB',
+    email: 'ceo@bluthcompany.com',
+    firstName: 'George',
+    lastName: 'Bluth',
+    photoUrl: 'https://pbs.twimg.com/profile_images/378800000134134212/81a38a74f2f122459e88a5f95987a139.jpeg'
+  })
+}).then((gob) => {
+  const magicStore = new Store({
+    name: 'The Magic Store',
+    address: 'over there'
+  })
+
+  const petSmart = new Store({
+    name: 'PetSmart',
+    address: '123 Sesame St'
+  })
+
+  gob.stores.push(magicStore, petSmart)
+
+  return gob.save()
+}).catch((error) => {
+  console.log('!!!!! ERROR SAVING SEEDED DATA !!!!!')
+  console.log(error)
+}).then(() => {
+  mongoose.connection.close()
+  console.log(`
+      Finished seeding database...
+      
+      Disconnected from MongoDB
+    `)
 })
-
-router.get('/:storeId', (request, response) => {
-  const userId = request.params.userId
-  const storeId = request.params.storeId
-
-  User.findById(userId)
-    .then((user) => {
-      const store = user.info.id(storeId)
-      response.render('info/show', {
-        userId,
-        store,
-        pageTitle: 'Store'
-      })
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-})
-
-router.post('/', (request, response) => {
-  const userId = request.params.userId
-  const newStore = request.body
-
-  User.findById(userId)
-    .then((user) => {
-      user.info.push(newStore)
-      return user.save()
-    })
-    .then(() => {
-      response.redirect(`/users/${userId}/info`)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-
-})
-
-router.get('/:storeId/delete', (request, response) => {
-  const userId = request.params.userId
-  const storeId = request.params.storeId
-
-  User.findById(userId)
-    .then((user) => {
-      user.info.id(storeId).remove()
-      return user.save()
-    })
-    .then(() => {
-      response.redirect(`/users/${userId}/info/`)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-})
-
-module.exports = router

@@ -6,8 +6,8 @@ router.get('/', (request, response) => {
     User.find({})
         .then((users) => {
             response.render('users/index', {
-                Gamers,
-                pageTitle: 'Banana'
+                users,
+                pageTitle: 'turtles'
             })
         })
         .catch((error) => {
