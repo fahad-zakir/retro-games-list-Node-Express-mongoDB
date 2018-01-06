@@ -1,12 +1,13 @@
 /* Global */
-
 * {
   font-family: "Roboto Mono", sans-serif;
   font-weight: 300;
 }
 
 body {
-  background: ghostwhite;
+  background-image: url(game-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 40px;
 }
 

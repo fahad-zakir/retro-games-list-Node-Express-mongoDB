@@ -1,0 +1,25 @@
+<div class="stepper">
+    <a href="/users">Home</a> /
+    <a href="/users/{{userId}}">Profile</a> / Games
+</div>
+
+<div class="game-header">
+    <h1>{{userFullName}}'s Games</h1>
+    <div class="button primary">
+        <a href="/users/{{userId}}/games/new">Add a new game</a>
+    </div>
+</div>
+
+<div class="games">
+    {{#each games}}
+    <div class="game card">
+        <a class="cancel" href="/users/{{../userId}}/games/{{this._id}}/delete">X</a>
+        <a href="/users/{{../userId}}/games/{{this._id}}">
+            <h3>{{this.name}}</h3>
+        </a>
+        <p>{{this.address}}</p>
+
+
+    </div>
+    {{/each}}
+</div>

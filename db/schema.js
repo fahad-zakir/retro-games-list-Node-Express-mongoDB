@@ -12,10 +12,10 @@ const InfoSchema = new Schema(
         description: {
             type: String
         },
-        price: {
+        yearReleased: {
             type: Number
         },
-        cameFrom: {
+        cheats: {
             type: String
         }
     },
@@ -30,7 +30,7 @@ const GameSchema = new Schema(
             type: String,
             required: [true, 'Game name is required!']
         },
-        address: {
+        gameLink: {
             type: String
         },
         InfosToReturn: [InfoSchema]

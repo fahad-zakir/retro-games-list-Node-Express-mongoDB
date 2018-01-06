@@ -1,0 +1,28 @@
+<div class="stepper">
+    <a href="/users">Home</a> /
+    <a href="/users/{{userId}}">Profile</a> /
+    <a href="/users/{{userId}}/games">Games</a> / New Game
+</div>
+
+<div class="card">
+
+    <h2>Add A New Game:</h2>
+    <div>
+        <form action="/users/{{userId}}/games" method="POST">
+            <div class="form-input">
+                <label for="name">Game Name:</label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div class="form-input">
+                <label for="address">Game Address:</label>
+                <input type="text" name="address">
+            </div>
+
+            <div class="button-container flex-end">
+                <input class="button primary" type="submit" value="Create Game">
+                <a href="/users/{{user._id}}" class="button warning">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
