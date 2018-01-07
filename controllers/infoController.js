@@ -50,7 +50,7 @@ router.get('/:infoId', (request, response) => {
   User.findById(userId)
     .then((user) => {
       const game = user.games.id(gameId)
-      const info = game.infoToReturn.id(infoId)
+      const info = game.infoList.id(infoId)
 
       response.render('info/show', {
         userId,
