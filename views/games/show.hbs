@@ -14,12 +14,12 @@
 
 <div>
     <div class="info-header">
-        <h3>Info To Return:</h3>
-        <a class="button primary" href="/users/{{userId}}/games/{{game._id}}/info/new">Add a Info</a>
+        <h3>Game Info</h3>
+        <a class="button primary" href="/users/{{userId}}/games/{{game._id}}/info/new">Add Game Info</a>
     </div>
 
     <div class="info">
-        {{#each game.infoToReturn}}
+        {{#each game.infoList}}
         <div class="info">
             <a href="/users/{{../userId}}/games/{{../game._id}}/info/{{this._id}}">
                 {{this.title}}

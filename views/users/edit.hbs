@@ -7,9 +7,9 @@
 
     <h2>Edit User Profile</h2>
     <div>
-        <form action="/users/{{user._id}}?_method=PUT" method="POST">
+        <form action="/users/{{user._id}}" method="POST">
             <div class="form-input">
-                <label for="username">Username:</label>
+                <label for="username">username:</label>
                 <input type="text" name="username" value="{{user.username}}" required/>
             </div>
 

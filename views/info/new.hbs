@@ -1,0 +1,31 @@
+<div class="stepper">
+    <a href="/users">Home</a> /
+    <a href="/users/{{userId}}">Profile</a> /
+    <a href="/users/{{userId}}/games">games</a> /
+    <a href="/users/{{userId}}/games/{{game._id}}">{{game.name}}</a> / New info
+</div>
+<div class="card">
+    <form action="/users/{{userId}}/games/{{game._id}}/info" method="POST">
+        <h2>New info</h2>
+        <div class="form-input">
+            <label for="title">Title</label>
+            <input type="text" name="title">
+        </div>
+        <div class="form-input">
+            <label for="genre">Genre</label>
+            <input type="text" name="genre">
+        </div>
+        <div class="form-input">
+            <label for="yearReleased">Year Released</label>
+            <input type="number" name="yearReleased">
+        </div>
+        <div class="form-input">
+            <label for="system">System</label>
+            <input type="text" name="system">
+        </div>
+        <div class="button-container flex-end">
+            <input class="button primary" type="submit" value="Create info">
+            <a href="/users/{{userId}}/games/{{game._id}}" class="button warning">Cancel</a>
+        </div>
+    </form>
+</div>

@@ -1,24 +1,24 @@
-require('dotenv').config();
-const express = require('express');
+require('dotenv').config()
+const express = require('express')
 const mongoose = require('mongoose')
-const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
+const path = require('path')
+const favicon = require('serve-favicon')
+const logger = require('morgan')
+const cookieParser = require('cookie-parser')
+const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
-const app = express();
+const app = express()
 
 
 // Controllers setup
 const userController = require('./controllers/userController')
 app.use('/users', userController)
 
-// const gamesController = require('./controllers/gamesController')
-// app.use('/users/:userId/games', gamesController)
+const gamesController = require('./controllers/gamesController')
+app.use('/users/:userId/games', gamesController)
 
-// const infoController = require('./controllers/infoController')
-// app.use('/users/:userId/games/:gameId/info', infoController)
+const infoController = require('./controllers/infoController')
+app.use('/users/:userId/games/:gameId/info', infoController)
 
 // Automatically 
 
@@ -33,19 +33,17 @@ app.set('view engine', 'hbs');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: false
-}));
+  extended: true
+}))
+app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
 
 // Mongo connection set-up
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGODB_URI, {
-  useMongoClient: true
-})
+mongoose.connect(process.env.MONGODB_URI)
 
 mongoose.connection.once('open', () => {
   console.log('Mongoose has connected to MongoDB!')
@@ -77,6 +75,5 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 module.exports = app;

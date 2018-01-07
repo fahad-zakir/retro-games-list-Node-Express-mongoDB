@@ -36,7 +36,7 @@ const GameSchema = new Schema(
             required: [true, 'Game link is required!']
         },
 
-        info: [InfoSchema]
+        infoList: [InfoSchema]
     },
     {
         timestamps: {}
@@ -45,7 +45,7 @@ const GameSchema = new Schema(
 
 const UserSchema = new Schema(
     {
-        userName: {
+        username: {
             type: String,
             required: [true, 'Username is required!']
         },
@@ -64,7 +64,6 @@ const UserSchema = new Schema(
             type: String,
             default: 'https://cdn.vectorstock.com/i/thumb-large/66/69/santa-hat-vector-296669.jpg'
         },
-
         games: [GameSchema]
     },
     {

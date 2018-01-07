@@ -8,7 +8,9 @@ const mongoose = require('mongoose')
 
 // connect to database
 // connect to database
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, {
+    useMongoClient: true
+})
 
 mongoose.connection.once('open', () => {
     console.log(`Mongoose has connected to MongoDB`)
@@ -26,7 +28,7 @@ mongoose.connection.on('error', (error) => {
 User.remove({})
 .then(() => {
     const fahadZakir = new User({
-        userName: 'fahad81',
+        username: 'fahad81',
         email: 'fahadzakir81@gmail.com',
         firstName: 'Fahad',
         lastName: 'Zakir',
@@ -43,7 +45,7 @@ User.remove({})
         yearReleased: 1991,
         system: 'SNES'
     })
-    streetFighter.info.push(streetFighterInfo)
+    streetFighter.infoList.push(streetFighterInfo)
 
     const marioKart = new Game({
         title: 'Super Mario Kart',
@@ -55,14 +57,14 @@ User.remove({})
         yearReleased: 1991,
         system: 'SNES'
     })
-    marioKart.info.push(marioKartInfo)
+    marioKart.infoList.push(marioKartInfo)
 
     fahadZakir.games.push(streetFighter, marioKart)
 
     return fahadZakir.save()
 }).then(() => {
     return User.create({
-        userName: 'musa10',
+        username: 'musa10',
         email: 'abumusa1981@hotmail.com',
         firstName: 'Musa',
         lastName: 'Zakir',

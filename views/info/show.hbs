@@ -1,0 +1,19 @@
+<div class="stepper">
+    <a href="/users">Home</a> /
+    <a href="/users/{{userId}}">Profile</a> /
+    <a href="/users/{{userId}}/games">games</a> /
+    <a href="/users/{{userId}}/games/{{game._id}}">{{game.name}}</a> / info
+</div>
+
+<div class="user-container">
+    <div>
+        <img src="https://placehold.it/256/256" alt="placeholder">
+    </div>
+    <div class="user-info">
+        <h1>{{info.title}}</h1>
+        <div>Description: {{info.genre}}</div>
+        <div>Year Released: ${{info.yearReleased}}</div>
+        <div>System: {{info.system}}</div>
+        <a class="button warning" href="/users/{{userId}}/games/{{game._id}}/info/{{info._id}}/delete">Delete</a>
+    </div>
+</div>
