@@ -1,10 +1,11 @@
 /* Global */
 * {
-  font-family: "Roboto Mono", sans-serif;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 300;
 }
 
-body {
+html, body {
   background-image: url(game-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;

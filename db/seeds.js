@@ -2,8 +2,11 @@ require('dotenv').config()
 const User = require('../db/models/User')
 const Game = require('../db/models/Game')
 const Info = require('../db/models/Info')
+
 const mongoose = require('mongoose')
 
+
+// connect to database
 // connect to database
 mongoose.connect(process.env.MONGODB_URI, {
     useMongoClient: true
@@ -24,38 +27,38 @@ mongoose.connection.on('error', (error) => {
 // Delete all users, then add some fake ones
 User.remove({}).then(() => {
     const bobLoblaw = new User({
-        username: 'bob_loblaw',
-        email: 'bob@loblawlawblog.com',
-        firstName: 'Robert',
-        lastName: 'Loblaw',
-        photoUrl: 'https://enterprisectr.org/wp-content/uploads/2014/09/bobloblaw.jpg'
+        userName: 'fahad81',
+        email: 'fahadzakir81@gmail.com',
+        firstName: 'Fahad',
+        lastName: 'Zakir',
+        photoUrl: 'https://s.cdn.turner.com/nba/nba/dam/assets/160608232408-lebron-james-2016-nba-finals---game-three.1280x720.jpeg'
     })
 
-    const target = new Game({
-        name: 'Target',
-        address: 'over there'
+    const streetFighter = new Game({
+        name: 'Street Fighter II',
+        gameLink: 'http://emulator.online/snes/street-fighter-2-turbo/'
     })
-    const toaster = new Info({
-        title: 'Toaster',
-        description: 'why?',
-        price: 25.41,
-        cameFrom: 'Lucille'
+    const streetFighter = new Info({
+        title: 'Street Fighter II',
+        genre: 'Fighting',
+        yearReleased: 1991,
+        system: 'SNES'
     })
-    target.InfosToReturn.push(toaster)
+    streetFighter.infoToReturn.push(streetFighter)
 
-    const sharperImage = new Game({
-        name: 'Sharper Image',
-        address: 'the mall'
+    const marioKart = new Game({
+        name: 'Super Mario Kart',
+        gameLink: 'http://emulator.online/snes/super-mario-kart/'
     })
-    const massageChair = new Info({
-        title: 'Massage Chair',
-        description: 'already have too many',
-        price: 1521.67,
-        cameFrom: 'Oscar'
+    const marioKart = new Info({
+        title: 'Super Mario Kart',
+        genre: 'Racing',
+        yearReleased: 1991,
+        system: 'SNES'
     })
-    sharperImage.infoToReturn.push(massageChair)
+    marioKart.infoToReturn.push(marioKart)
 
-    bobLoblaw.games.push(target, sharperImage)
+    bobLoblaw.Games.push(target, sharperImage)
 
     return bobLoblaw.save()
 }).then(() => {
@@ -69,12 +72,12 @@ User.remove({}).then(() => {
 }).then((gob) => {
     const magicGame = new Game({
         name: 'The Magic Game',
-        address: 'over there'
+        gameLink: 'over there'
     })
 
     const petSmart = new Game({
         name: 'PetSmart',
-        address: '123 Sesame St'
+        gameLink: '123 Sesame St'
     })
 
     gob.games.push(magicGame, petSmart)

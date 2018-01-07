@@ -7,7 +7,7 @@ router.get('/', (request, response) => {
         .then((users) => {
             response.render('users/index', {
                 users,
-                pageTitle: 'turtles'
+                pageTitle: ''
             })
         })
         .catch((error) => {
@@ -21,10 +21,7 @@ router.get('/new', (request, response) => {
 
 router.post('/', (request, response) => {
     const newUser = request.body
-    if (!newUser.photoUrl) {
-        newUser.photoUrl = 'http://www.fillmurray.com/g/300/300'
-    }
-
+    console.log(newUser)
     User.create(newUser)
         .then(() => {
             response.redirect('/users')

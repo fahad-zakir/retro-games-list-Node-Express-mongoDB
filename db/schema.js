@@ -5,17 +5,18 @@ mongoose.Promise = global.Promise
 
 const InfoSchema = new Schema(
     {
+        
         title: {
             type: String,
             required: [true, 'Info title is required!']
         },
-        description: {
+        genre: {
             type: String
         },
         yearReleased: {
             type: Number
         },
-        cheats: {
+        system: {
             type: String
         }
     },
@@ -26,14 +27,16 @@ const InfoSchema = new Schema(
 
 const GameSchema = new Schema(
     {
-        name: {
+        title: {
             type: String,
-            required: [true, 'Game name is required!']
+            required: [true, 'Game title is required!']
         },
         gameLink: {
-            type: String
+            type: String,
+            required: [true, 'Game link is required!']
         },
-        InfosToReturn: [InfoSchema]
+
+        Info: [InfoSchema]
     },
     {
         timestamps: {}
@@ -42,7 +45,7 @@ const GameSchema = new Schema(
 
 const UserSchema = new Schema(
     {
-        username: {
+        userName: {
             type: String,
             required: [true, 'Username is required!']
         },
@@ -61,6 +64,7 @@ const UserSchema = new Schema(
             type: String,
             default: 'https://cdn.vectorstock.com/i/thumb-large/66/69/santa-hat-vector-296669.jpg'
         },
+
         games: [GameSchema]
     },
     {
