@@ -36,7 +36,7 @@ const GameSchema = new Schema(
             required: [true, 'Game link is required!']
         },
 
-        Info: [InfoSchema]
+        info: [InfoSchema]
     },
     {
         timestamps: {}
