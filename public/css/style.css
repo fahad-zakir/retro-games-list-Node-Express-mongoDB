@@ -5,12 +5,10 @@
   font-weight: 300;
 }
 
-/* html, body {
-  background-image: url(game-bg-jpg.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+html, body {
+  background:linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 1%, rgba(0, 0, 0, 0) 100%);
   padding: 40px;
-} */
+}
 
 .page-content {
   display: flex;
