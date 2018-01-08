@@ -1,11 +1,13 @@
-# WDI- Jeopardy
+# WDI- Project - 01
+
+# Retro-Games-List
 
 https://hidden-taiga-23732.herokuapp.com/users
 
 https://fahad-zakir.github.io/retro-games-list/
 
 ## Project Description
-Bring back memories of your favorite classic games with this site. Retro-Games-List allows you to create a user profile and add a list of your favorite classic games.  All you need to do is visit the provided link for the game links.  
+Bring back memories of your favorite classic games with this site. Retro-Games-List allows you to create a user profile and add a list of your favorite classic games.  Just visit the provided link for the game links.  
 
 # Trello Board Link
 https://trello.com/b/WrgnmuKH/retro-games-list
