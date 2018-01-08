@@ -12,6 +12,7 @@ html, body {
 
 .title {
   color : #c53d3d;
+  font-weight: 900;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -52,7 +53,10 @@ h2 {
 .stepper {
   align-self: flex-start;
   padding: 15px;
+  color: black;
+  font-weight: 900;
   margin-bottom: 20px;
+  font-size: 30px;
 }
 
 
@@ -314,9 +318,10 @@ h2 {
   align-content: baseline;
   justify-content: center;
   align-items: baseline;
+  margin-top: 20px;
   width: 30%;
   min-width: 125px;
-  background: #D3D3D3;
+  background: black;
   padding: 10px;
   text-align: center;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -328,18 +333,18 @@ h2 {
   font-size: 1.35rem;
 }
 
-.gift-header h3 {
+.info-header h3 {
   font-family: "Rubik";
   font-weight: 500;
   font-size: 1.55rem;
 }
 
-.gifts {
+.info {
   flex-direction: column;
   justify-content: center;
 }
 
-.gift {
+.info{
   margin: 10px;
 }
 
