@@ -1,17 +1,19 @@
 /* Global */
+
 * {
   font-family: 'Lato', sans-serif;
   font-family: 'Playfair Display', serif;
   font-weight: 300;
 }
 
-html, body {
-  background:linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 1%, rgba(0, 0, 0, 0) 100%);
+html,
+body {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.65) 1%, rgba(0, 0, 0, 0) 100%);
   padding: 40px;
 }
 
 .title {
-  color : #c53d3d;
+  color: #c53d3d;
   font-weight: 900;
   position: absolute;
   left: 50%;
@@ -19,7 +21,7 @@ html, body {
   font-size: 1.3em;
 }
 
-.controller  {
+.controller {
   margin-left: 250px;
 }
 
@@ -29,7 +31,6 @@ html, body {
   align-items: center;
   width: 100%;
 }
-
 
 h1 {
   font-family: "Rubik";
@@ -344,7 +345,7 @@ h2 {
   justify-content: center;
 }
 
-.info{
+.info {
   margin: 10px;
 }
 

@@ -1,9 +1,13 @@
 const express = require('express')
-const router = express.Router({ mergeParams: true })
+const router = express.Router({
+    mergeParams: true
+})
 // Ask Teacher About why the app.js isn't allowing 
 // the body parser to be used globally(scope)
 const bodyParser = require('body-parser')
-router.use(bodyParser.urlencoded({ extended: false }))
+router.use(bodyParser.urlencoded({
+    extended: false
+}))
 router.use(bodyParser.json())
 
 const User = require('../db/models/User')
@@ -30,7 +34,7 @@ router.get('/new', (request, response) => {
 
     response.render('games/new', {
         userId,
-        pageTitle: 'New_Game'
+        pageTitle: 'New Game'
     })
 })
 
