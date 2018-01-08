@@ -11,9 +11,11 @@ html, body {
 }
 
 .title {
-  text-align: center;
-  margin-top: 100px;
   color : #c53d3d;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.3em;
 }
 
 .controller  {
@@ -204,13 +206,13 @@ h2 {
   margin: 0 30px 0 0;
 }
 
-.user-info .visit-store a {
+.user-info .visit-game a {
   color: black;
   font-size: 2rem;
   transition: all .25s ease
 }
 
-.user-info .visit-store a:hover {
+.user-info .visit-game a:hover {
   color: #e55934;
 }
 
@@ -293,10 +295,10 @@ h2 {
 }
 
 
-/* Store Show */
+/* game Show */
 
-.store-header,
-.stores,
+.game-header,
+.game,
 .gift-header,
 .gifts {
   width: 65%;
@@ -306,7 +308,7 @@ h2 {
   justify-content: space-between;
 }
 
-.store.card {
+.game.card {
   display: flex;
   flex-wrap: wrap;
   align-content: baseline;
@@ -320,7 +322,7 @@ h2 {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-.store.card .cancel {
+.game.card .cancel {
   align-self: flex-end;
   text-decoration: none;
   font-size: 1.35rem;
@@ -345,7 +347,7 @@ h2 {
   .user-container {
     flex-direction: column;
   }
-  .store-header {
+  .game-header {
     flex-direction: column;
   }
 }
