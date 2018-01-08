@@ -13,6 +13,7 @@ const app = express()
 // Controllers setup
 const userController = require('./controllers/userController')
 app.use('/users', userController)
+app.get('*', userController)
 
 const gamesController = require('./controllers/gamesController')
 app.use('/users/:userId/games', gamesController)
