@@ -19,7 +19,7 @@ router.get('/new', (request, response) => {
       response.render('info/new', {
         userId,
         game,
-        pageTitle: 'New_Info'
+        pageTitle: 'New Info'
       })
     })
 })
