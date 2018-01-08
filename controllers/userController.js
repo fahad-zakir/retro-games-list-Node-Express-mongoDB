@@ -3,7 +3,9 @@ const router = express.Router()
 // Ask Teacher About why the app.js isn't allowing 
 // the body parser to be used globally(scope)
 const bodyParser = require('body-parser')
-router.use(bodyParser.urlencoded({ extended: false }))
+router.use(bodyParser.urlencoded({
+    extended: false
+}))
 router.use(bodyParser.json())
 
 const User = require('../db/models/User')
@@ -22,7 +24,9 @@ router.get('/', (request, response) => {
 })
 
 router.get('/new', (request, response) => {
-    response.render('users/new', { pageTitle: 'New User' })
+    response.render('users/new', {
+        pageTitle: 'New User'
+    })
 })
 
 router.post('/', (request, response) => {
@@ -88,7 +92,9 @@ router.post('/:userId', (request, response) => {
 
     console.log(updatedUserInfo);
 
-    User.findByIdAndUpdate(userId, updatedUserInfo, { new: true })
+    User.findByIdAndUpdate(userId, updatedUserInfo, {
+            new: true
+        })
         .then(() => {
             response.redirect(`/users/${userId}`)
         })
