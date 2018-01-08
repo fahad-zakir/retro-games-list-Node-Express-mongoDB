@@ -10,6 +10,10 @@ html, body {
   padding: 40px;
 }
 
+.controller  {
+  margin-left: 250px;
+}
+
 .page-content {
   display: flex;
   flex-direction: column;
