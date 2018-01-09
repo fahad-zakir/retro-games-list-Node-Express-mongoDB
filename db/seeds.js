@@ -32,7 +32,7 @@ User.remove({})
             email: 'fahadzakir81@gmail.com',
             firstName: 'Fahad',
             lastName: 'Zakir',
-            photoUrl: 'https://s.cdn.turner.com/nba/nba/dam/assets/160608232408-lebron-james-2016-nba-finals---game-three.1280x720.jpeg'
+            photoUrl: 'https://i.imgur.com/0yDZcCV.jpg'
         })
 
         const streetFighter = new Game({
@@ -68,7 +68,7 @@ User.remove({})
             email: 'abumusa1981@hotmail.com',
             firstName: 'Musa',
             lastName: 'Zakir',
-            photoUrl: 'https://www.tesla.com/sites/default/files/images/software_update.jpg'
+            photoUrl: 'https://i.imgur.com/zedHEOI.png'
         })
     }).then((musa) => {
         const streetsOfRage = new Game({
