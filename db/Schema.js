@@ -55,7 +55,7 @@ const UserSchema = new Schema({
     },
     photoUrl: {
         type: String,
-        default: 'https://cdn.vectorstock.com/i/thumb-large/66/69/santa-hat-vector-296669.jpg'
+        default: 'https://i.imgur.com/ul23PsQ.jpg'
     },
     games: [GameSchema]
 }, {
