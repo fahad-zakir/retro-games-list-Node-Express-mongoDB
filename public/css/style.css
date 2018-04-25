@@ -357,6 +357,11 @@ h2 {
       font-size: 18px;
     }
   }
+  @media screen and (max-width: 750px) {
+    .app-name {
+      display:none;
+    }
+  }
   
   .game-header {
     flex-direction: column;
