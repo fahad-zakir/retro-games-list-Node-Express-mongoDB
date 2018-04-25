@@ -37,7 +37,8 @@ User.remove({})
 
         const streetFighter = new Game({
             title: 'Street Fighter II',
-            gameLink: 'http://emulator.online/snes/street-fighter-2-turbo/'
+            gameLink: 'http://emulator.online/snes/street-fighter-2-turbo/',
+            photoUrl: 'https://i.imgur.com/zedHEOI.png'
         })
         const streetFighterInfo = new Info({
             title: 'Street Fighter II',
@@ -49,7 +50,8 @@ User.remove({})
 
         const marioKart = new Game({
             title: 'Super Mario Kart',
-            gameLink: 'http://emulator.online/snes/super-mario-kart/'
+            gameLink: 'http://emulator.online/snes/super-mario-kart/',
+            photoUrl: 'https://i.imgur.com/zedHEOI.png'
         })
         const marioKartInfo = new Info({
             title: 'Super Mario Kart',
@@ -73,12 +75,14 @@ User.remove({})
     }).then((musa) => {
         const streetsOfRage = new Game({
             title: 'Streets of Rage',
-            gameLink: 'http://emulator.online/genesis/streets-of-rage/'
+            gameLink: 'http://emulator.online/genesis/streets-of-rage/',
+            photoUrl: 'https://i.imgur.com/zedHEOI.png'
         })
 
         const starFox = new Game({
             title: 'Star Fox',
-            gameLink: 'http://emulator.online/snes/star-fox/'
+            gameLink: 'http://emulator.online/snes/star-fox/',
+            photoUrl: 'https://i.imgur.com/zedHEOI.png'
         })
 
         musa.games.push(streetsOfRage, starFox)

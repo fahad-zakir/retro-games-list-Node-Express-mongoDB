@@ -31,7 +31,10 @@ const GameSchema = new Schema({
         type: String,
         required: [true, 'Game link is required!']
     },
-
+    photoUrl: {
+        type: String,
+        default: 'https://i.imgur.com/ul23PsQ.jpg'
+    },
     infoList: [InfoSchema]
 }, {
     timestamps: {}

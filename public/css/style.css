@@ -18,7 +18,6 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1.3em;
 }
 
 .controller {
@@ -52,6 +51,7 @@ h2 {
 /* Stepper */
 
 .stepper {
+  display: flex;
   align-self: flex-start;
   padding: 15px;
   color: black;
@@ -270,7 +270,6 @@ h2 {
   max-width: 900px;
 }
 
-.card-content {}
 
 
 /*
@@ -353,6 +352,12 @@ h2 {
   .user-container {
     flex-direction: column;
   }
+  @media screen and (max-width: 750px) {
+    .title, .stepper {
+      font-size: 18px;
+    }
+  }
+  
   .game-header {
     flex-direction: column;
   }

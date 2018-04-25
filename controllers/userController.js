@@ -44,6 +44,8 @@ router.post('/', (request, response) => {
 
 router.get('/:userId', (request, response) => {
     const userId = request.params.userId
+    //params are going back to the user.id from what is in the url in app.js, everything that comes with userId and after it will be the params
+    //after the colons will be the parameter 
     console.log(request.params.userId)
 
     User.findById(userId)
@@ -57,7 +59,6 @@ router.get('/:userId', (request, response) => {
             console.log(error)
         })
 })
-
 router.get('/:userId/edit', (request, response) => {
     const userId = request.params.userId
     console.log(request.params.userId)
