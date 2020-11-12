@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const app = express()
+var favicon = require('serve-favicon')
 
 // Controllers setup
 const userController = require('./controllers/userController')
@@ -30,7 +31,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
-app.use(express.favicon(pat.join(__dirname, 'public/favicon.ico'))); 
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
