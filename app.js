@@ -42,6 +42,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
 
+// Robots.txt
+app.use('/robots.txt', function (req, res, next) {
+    res.type('text/plain')
+    res.send("User-agent: *\nDisallow: /");
+});
+
 // Mongo connection set-up
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI, {
