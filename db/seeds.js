@@ -5,11 +5,9 @@ const Info = require('../db/models/Info')
 
 const mongoose = require('mongoose')
 
-
-// connect to database
 // connect to database
 mongoose.connect(process.env.MONGODB_URI, {
-    useMongoClient: true
+    useUnifiedTopology: true 
 })
 
 mongoose.connection.once('open', () => {

@@ -8,7 +8,6 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const app = express()
 
-
 // Controllers setup
 const userController = require('./controllers/userController')
 app.use('/users', userController)
@@ -42,7 +41,10 @@ app.use(methodOverride('_method'))
 
 // Mongo connection set-up
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI, {
+useNewUrlParser: true,
+useUnifiedTopology: true
+})
 
 mongoose.connection.once('open', () => {
   console.log('Mongoose has connected to MongoDB!')
@@ -55,7 +57,6 @@ mongoose.connection.on('error', (error) => {
   `)
   process.exit(-1)
 })
-
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
