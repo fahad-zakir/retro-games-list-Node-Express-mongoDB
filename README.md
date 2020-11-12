@@ -21,9 +21,10 @@ https://imgur.com/QJBgSoe
 
 # Technolgoies Used
 * Node JS, express generator, mongoDB, mongoose, heroku
+* Handlebars for the UI
 * Bootstrap 4
 * Google search (W3-schools)
-* MacDown (for writing this Read-Me)
+* MacDown (for writing this Read-Me) 
 
 # Resources
 * Gift-app from General Assembly
