@@ -31,6 +31,8 @@ app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 app.use("/public/", express.static('public')); 
+app.use(express.favicon('./public/favicon.ico'))
+
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
   extended: true
