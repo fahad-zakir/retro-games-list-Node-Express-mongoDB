@@ -30,6 +30,8 @@ app.use('/users/:userId/games/:gameId/info', infoController)
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+app.use(express.static('public'))
+
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
@@ -43,7 +45,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
 
 // Robots.txt
-app.use('/robots.txt', function (req, res, next) {
+app.use('./public/robots.txt', function (req, res, next) {
     res.type('text/plain')
     res.send("User-agent: *\nDisallow: /");
 });
