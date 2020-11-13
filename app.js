@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const app = express()
-var favicon = require('serve-favicon')
+
 
 // Controllers setup
 const userController = require('./controllers/userController')
@@ -30,11 +30,7 @@ app.use('/users/:userId/games/:gameId/info', infoController)
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-
-
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
-
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
   extended: true
@@ -44,18 +40,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
 
-// Robots.txt
-app.use('./public/robots.txt', function (req, res, next) {
-    res.type('text/plain')
-    res.send("User-agent: *\nDisallow: /");
-});
-
 // Mongo connection set-up
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGODB_URI, {
-useNewUrlParser: true,
-useUnifiedTopology: true
-})
+mongoose.connect(process.env.MONGODB_URI)
 
 mongoose.connection.once('open', () => {
   console.log('Mongoose has connected to MongoDB!')
@@ -68,6 +55,7 @@ mongoose.connection.on('error', (error) => {
   `)
   process.exit(-1)
 })
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
