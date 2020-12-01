@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/37c445dc-813e-4d94-94e8-f6dcff631094/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/retro-games-list",
+    "appService.deploySubpath": "."
+}
