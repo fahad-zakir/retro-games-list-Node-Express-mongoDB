@@ -36,7 +36,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 app.use(methodOverride('_method'))
 
 // uncomment after placing your favicon in /public
