@@ -30,10 +30,6 @@ app.use('/users/:userId/games/:gameId/info', infoController)
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-
-// uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public/css/', 'favicon.ico')))
-
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
   extended: true
@@ -42,6 +38,9 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
+
+// uncomment after placing your favicon in /public
+app.use(favicon(path.join(__dirname, 'public/css/', 'favicon.ico')))
 
 // Robots.txt
 app.use('./public/robots.txt', function (req, res, next) {
