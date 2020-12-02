@@ -43,11 +43,11 @@ app.use(methodOverride('_method'))
 app.use(favicon(path.join(__dirname, 'public/css/', 'favicon.ico')))
 //app.use(favicon(__dirname + 'public/css/favicon.ico'));
 
-// Robots.txt
-app.use('./public/robots.txt', function (req, res, next) {
-    res.type('text/plain')
-    res.send("User-agent: *\nDisallow: /");
-});
+// // Robots.txt
+// app.use('./public/robots.txt', function (req, res, next) {
+//     res.type('text/plain')
+//     res.send("User-agent: *\nDisallow: /");
+// });
 
 // Mongo connection set-up
 mongoose.Promise = global.Promise
