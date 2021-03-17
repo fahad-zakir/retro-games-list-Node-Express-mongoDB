@@ -5,10 +5,10 @@
   "engines": {
     "node": "12.19.0",
     "npm": "6.14.8"
-  },
-  "scripts": {
+  },  "scripts": {
+    "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "start": "node ./bin/www"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
