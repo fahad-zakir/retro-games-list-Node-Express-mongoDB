@@ -1,7 +1,7 @@
 # WDI-Project-02
 # Retro-Games-List
 
-https://hidden-taiga-23732.herokuapp.com/users
+https://retro-games-project.herokuapp.com/
 
 
 ## Project Description
