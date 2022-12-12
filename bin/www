@@ -3,7 +3,6 @@
 /**
  * Module dependencies.
  */
-
 var app = require('../app');
 var debug = require('debug')('retro-games-list:server');
 var http = require('http');
