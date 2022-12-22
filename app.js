@@ -48,7 +48,6 @@ app.use(favicon(path.join(__dirname, 'public/css/', 'favicon.ico')))
 //     res.type('text/plain')
 //     res.send("User-agent: *\nDisallow: /");
 // });
-// testing
 // Mongo connection set-up
 mongoose.Promise = global.Promise
 mongoose.connect(process.env.MONGODB_URI, {
