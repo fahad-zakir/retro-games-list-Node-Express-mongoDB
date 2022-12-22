@@ -21,7 +21,7 @@ const infoController = require('./controllers/infoController')
 app.use('/users/:userId/games/:gameId/info', infoController)
 
 // Automatically 
-
+//testing
 // const index = require('./routes/index');
 // const users = require('./routes/users');
 
