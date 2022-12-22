@@ -40,8 +40,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
 
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public/css/', 'favicon.ico')))
-//app.use(favicon(__dirname + 'public/css/favicon.ico'));
+// app.use(favicon(path.join(__dirname, 'public/css/', 'favicon.ico')))
+app.use(favicon(__dirname + 'public/css/favicon.ico'));
 
 // // Robots.txt
 // app.use('./public/robots.txt', function (req, res, next) {
