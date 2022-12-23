@@ -24,6 +24,7 @@ app.use('/users/:userId/games/:gameId/info', infoController)
 
 // const index = require('./routes/index');
 // const users = require('./routes/users');
+//testing
 
 
 // view engine setup
